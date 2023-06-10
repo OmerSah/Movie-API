@@ -11,7 +11,7 @@ using WebProjectAPI.Data;
 namespace WebProjectAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230610221009_Producer")]
+    [Migration("20230610222045_Producer")]
     partial class Producer
     {
         /// <inheritdoc />
@@ -74,11 +74,16 @@ namespace WebProjectAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ProducerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProducerId");
 
                     b.ToTable("Movies");
                 });
@@ -98,6 +103,22 @@ namespace WebProjectAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Producers");
+                });
+
+            modelBuilder.Entity("WebProjectAPI.Data.Models.Movie", b =>
+                {
+                    b.HasOne("WebProjectAPI.Data.Models.Producer", "Producer")
+                        .WithMany("Movies")
+                        .HasForeignKey("ProducerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Producer");
+                });
+
+            modelBuilder.Entity("WebProjectAPI.Data.Models.Producer", b =>
+                {
+                    b.Navigation("Movies");
                 });
 #pragma warning restore 612, 618
         }

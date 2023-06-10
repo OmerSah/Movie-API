@@ -7,5 +7,7 @@ name: name of the producer
 movies: a list of movie IDs associated with the producer */
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public List<Movie> Movies { get; set; }
     }
 }

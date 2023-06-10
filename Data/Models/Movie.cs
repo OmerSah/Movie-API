@@ -13,5 +13,7 @@ categories: a list of category IDs associated with the movie */
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         
+        public int ProducerId { get; set; }
+        public Producer Producer { get; set; }
     }
 }
