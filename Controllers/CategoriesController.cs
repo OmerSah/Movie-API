@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebProjectAPI.Data.Models;
 using WebProjectAPI.Services;
 
 namespace WebProjectAPI.Controllers
@@ -16,12 +17,17 @@ namespace WebProjectAPI.Controllers
             this._categoryService = categoryService;
         }
 
-
-        // GET: api/Categories
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_categoryService.GetAll());
         }
+
+        [HttpGet("{id}")]
+        public async Task<Category> GetById(int id)
+        {
+            return await _categoryService.GetById(id);
+        }
+
     }
 }

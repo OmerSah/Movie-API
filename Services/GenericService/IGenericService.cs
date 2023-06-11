@@ -10,9 +10,11 @@ namespace WebProjectAPI.Services.GenericService
 
         Task<TEntity> GetById(int id);
 
-        Task Create(TEntity entity);
+        Task<List<TEntity>> GetByIds(List<int> id);
 
-        Task Update(int id, TEntity entity);
+        Task<TEntity> Create(TEntity entity);
+
+        Task<TEntity> Update(int id, TEntity entity);
 
         Task Delete(int id);
     }

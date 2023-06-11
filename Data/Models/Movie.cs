@@ -1,19 +1,14 @@
-﻿using WebProjectAPI.Data.Models.Base;
+﻿using System.Text.Json.Serialization;
+using WebProjectAPI.Data.Models.Base;
 
 namespace WebProjectAPI.Data.Models
 {
-    public class Movie: BaseEntity
+    public class Movie : BaseEntity
     {
-        /* id: unique identifier for the movie
-title: title of the movie
-description: brief description of the movie
-producer: ID of the producer associated with the movie
-actors: a list of actor IDs associated with the movie
-categories: a list of category IDs associated with the movie */
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        
+        [JsonIgnore]
         public int ProducerId { get; set; }
         public Producer Producer { get; set; }
         public List<Actor> Actors { get; set; }
