@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using WebProjectAPI.Data.Models.Base;
 
 namespace WebProjectAPI.Data.Models
 {
-    public class Category
+    public class Category: BaseEntity
     {
         /* id: unique identifier for the category
             name: name of the category
@@ -11,6 +13,7 @@ namespace WebProjectAPI.Data.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+        [JsonIgnore]
         public List<Movie> Movies { get; set; }
     }
 }

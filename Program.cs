@@ -1,5 +1,6 @@
 using WebProjectAPI.Data;
 using Microsoft.EntityFrameworkCore;
+using WebProjectAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IProducerService, ProducerService>();
+builder.Services.AddScoped<IActorService, ActorService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
