@@ -15,5 +15,7 @@ categories: a list of category IDs associated with the movie */
         
         public int ProducerId { get; set; }
         public Producer Producer { get; set; }
+        public List<Actor> Actors { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }
