@@ -13,5 +13,7 @@ namespace WebProjectAPI.Data
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
     }
 }

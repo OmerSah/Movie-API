@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebProjectAPI.Data.Models;
 using WebProjectAPI.Services;
@@ -7,6 +8,7 @@ namespace WebProjectAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class CategoriesController : ControllerBase
     {
 
